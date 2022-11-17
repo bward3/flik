@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 // import schema from Film.js
-const filmSchema = require("./Film");
+const Film = require("./Film");
 
 const userSchema = new Schema(
   {
@@ -22,7 +22,7 @@ const userSchema = new Schema(
       required: true,
     },
     // set savedBooks to be an array of data that adheres to the bookSchema
-    savedFilms: [filmSchema],
+    savedFilms: [Schema.Types.ObjectId],
   },
   // set this to use virtual below
   {
